@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -20,6 +21,15 @@ def _parse_now(value: str) -> int:
     if dt.tzinfo is None:
         dt = dt.replace(tzinfo=timezone.utc)
     return int(dt.timestamp())
+
+
+def _atomic_write_json(path: str, payload: dict) -> None:
+    target = Path(path)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    text = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
+    tmp = target.with_name(target.name + ".tmp")
+    tmp.write_text(text, encoding="utf-8")
+    os.replace(tmp, target)
 
 
 def cmd_inspect(args: argparse.Namespace) -> int:
@@ -44,20 +54,10 @@ def cmd_admit(args: argparse.Namespace) -> int:
     except (OSError, ValueError, KeyError, json.JSONDecodeError) as e:
         print(f"load failure: {e}", file=sys.stderr)
         return 2
-    except NotImplementedError as e:
-        print(str(e), file=sys.stderr)
-        return 2
 
-    Path(args.report).write_text(
-        json.dumps(report, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
-    )
-    # Persist store only when implementation updates it; stub never reaches here.
-    if args.nonce_store:
-        Path(args.nonce_store).write_text(
-            json.dumps(store, ensure_ascii=False, indent=2) + "\n",
-            encoding="utf-8",
-        )
+    _atomic_write_json(args.report, report)
+    if report["decision"] == "allow":
+        _atomic_write_json(args.nonce_store, store)
     decision = report.get("decision")
     if decision == "allow":
         return 0
