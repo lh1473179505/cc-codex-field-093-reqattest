@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "kid": "k-rotated",
+  "ts": 1775044770,
+  "nonce": "nonce-ok-health",
+  "method": "GET",
+  "path": "/v1/health",
+  "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scopes": [
+    "ops:ping"
+  ],
+  "audience": "ops-api",
+  "sig": "UJz-QeXTRFt0SVNK99SmszWJClug6uqaGqQRkZMWZVA"
+}

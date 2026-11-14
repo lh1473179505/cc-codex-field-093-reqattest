@@ -1,0 +1,38 @@
+{
+  "allowed_methods": [
+    "GET",
+    "POST"
+  ],
+  "allowed_audiences": [
+    "payments-api",
+    "ops-api"
+  ],
+  "path_allow": [
+    {
+      "audience": "payments-api",
+      "prefix": "/v1/charges/"
+    },
+    {
+      "audience": "payments-api",
+      "exact": "/v1/refunds"
+    },
+    {
+      "audience": "ops-api",
+      "exact": "/v1/health"
+    }
+  ],
+  "denied_path_substrings": [
+    "/../",
+    "//",
+    "\\"
+  ],
+  "allowed_scopes": [
+    "charges:write",
+    "charges:read",
+    "refunds:write",
+    "ops:ping"
+  ],
+  "clock_skew_seconds": 60,
+  "require_audience": true,
+  "nonce_ttl_seconds": 3600
+}

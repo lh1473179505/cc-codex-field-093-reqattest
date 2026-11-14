@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "kid": "k-active",
+  "ts": 1775044800,
+  "nonce": "nonce-deny-path",
+  "method": "POST",
+  "path": "/evil/v1/charges/ch_1",
+  "body_sha256": "3e54c33d928585856675793146cbc10e1ac3cd69a24b740734e22a40360f89d3",
+  "scopes": [
+    "charges:write"
+  ],
+  "audience": "payments-api",
+  "sig": "IjmR13xPePCD6W3CaZJaWjWT9PS9DwFt9MeMCdUTLEM"
+}

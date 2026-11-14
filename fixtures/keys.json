@@ -1,0 +1,16 @@
+{
+  "keys": {
+    "k-active": {
+      "secret": "a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
+      "status": "active"
+    },
+    "k-rotated": {
+      "secret": "b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2",
+      "status": "active"
+    },
+    "k-revoked": {
+      "secret": "c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3",
+      "status": "revoked"
+    }
+  }
+}

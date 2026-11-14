@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "kid": "k-active",
+  "ts": 1775044800,
+  "nonce": "nonce-already-used",
+  "method": "POST",
+  "path": "/v1/charges/ch_replay",
+  "body_sha256": "73cf9c715da172f4f03974ae5b703942708171847d212aa04135d309d53ee235",
+  "scopes": [
+    "charges:write"
+  ],
+  "audience": "payments-api",
+  "sig": "22Y5y3Xe9uRxp_b4UdAq0szZduYEvDX8zHxVW9nAaR4"
+}

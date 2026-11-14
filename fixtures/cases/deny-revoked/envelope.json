@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "kid": "k-revoked",
+  "ts": 1775044800,
+  "nonce": "nonce-revoked",
+  "method": "POST",
+  "path": "/v1/charges/ch_r",
+  "body_sha256": "393ad071a3fa08313c2cf4f93ed7cb43a303ed65d1deea8504825d0617493307",
+  "scopes": [
+    "charges:write"
+  ],
+  "audience": "payments-api",
+  "sig": "hlD4lYuM3DidSi1E32WbafqwjZC8kKmlerT7tIzYHYY"
+}
